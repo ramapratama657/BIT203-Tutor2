@@ -13,17 +13,20 @@ public class Room {
     String name;
     int noOfChairs;
     boolean isBooked;
-    Dimension inDimension;
-    Window inWindow[];
+    ArrayList<Dimension> InDimension = new ArrayList<Dimension>();
+    ArrayList<Window> InWindow = new ArrayList<Window>();
     
     public Room(){
-    
+        name=null;
+        noOfChairs=0;
+        isBooked=true;
     }
-    public Room(String inName, int inNoOfChairs, boolean inBooked, Dimension inDimension, Window inWindow[] ){
+    public Room(String inName, int inNoOfChairs, boolean inBooked, Dimension inDimension, Window inWindow ){
         this.name=inName;
         this.noOfChairs=inNoOfChairs;
         this.isBooked=inBooked;
-        //this.Dimension=inDimension;
+        InDimension.add(inDimension);
+        InWindow.add(inWindow);
         
     }
     
@@ -36,6 +39,12 @@ public class Room {
     public void setIsBooked(boolean inBooked){
         this.isBooked=inBooked;
     }
+    public void setInDimension(ArrayList<Dimension>inDimension){
+        this.InDimension=inDimension;
+    }
+    public void setInWindow(ArrayList<Window>inWindow){
+        this.InWindow=inWindow;
+    }
     public String getName(){
         return this.name;
     }
@@ -45,8 +54,13 @@ public class Room {
     public boolean getIsBooked(){
         return this.isBooked;
     }
-    
+    public ArrayList<Dimension> getInDimension(){
+        return this.InDimension;
+    }
+    public ArrayList<Window> getInWindow(){
+        return this.InWindow;
+    }
     public String toString(){
-        return "Room "+name+" with "+inDimension+"m, with "+inWindow+" and "+noOfChairs+" chairs, and is already booked: "+isBooked;
+        return "Room "+getName()+" with "+getInDimension()+"m, with "+getInWindow()+" and "+getNoOfChairs()+" chairs, and is already booked: "+getIsBooked();
     }
 }

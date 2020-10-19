@@ -38,6 +38,6 @@ public class Dimension {
         return this.length;
     }
     public String toString(){
-        return ""+width * length;
+        return ""+getWidth() * getLength();
     }
 }

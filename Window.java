@@ -30,7 +30,7 @@ public class Window {
     }
     
     public String toString(){
-        return "Window facing to "+direction;
+        return "Window facing to "+getDirection();
     }
     
 }
